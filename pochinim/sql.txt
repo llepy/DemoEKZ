@@ -1,0 +1,55 @@
+-- Создание базы данных
+CREATE DATABASE IF NOT EXISTS pochinim;
+
+-- Использование базы данных
+USE pochinim;
+
+-- Создание таблицы users
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    car VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    date_time DATETIME NOT NULL,
+    status ENUM('новое', 'подтверждено', 'отклонено') NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+Починим! - это информационная система для предварительной записи на ремонт автомобиля.
+
+## Структура проекта
+
+- `css/`
+  - `styles.css`: Основной файл стилей.
+- `js/`
+  - `validate.js`: Файл JavaScript для валидации.
+- `includes/`
+  - `db.php`: Файл подключения к базе данных.
+- `admin/`
+  - `index.php`: Главная страница панели администратора.
+  - `update_status.php`: Скрипт для обновления статуса заявки.
+- `user/`
+  - `index.php`: Главная страница пользователя с заявками.
+  - `new_application.php`: Скрипт для создания новой заявки.
+  - `new_application.html`: Форма для создания новой заявки.
+- `auth/`
+  - `login.php`: Скрипт для авторизации.
+  - `login.html`: Форма для авторизации.
+  - `register.php`: Скрипт для регистрации.
+  - `register.html`: Форма для регистрации.
+- `index.php`: Главная страница.
+- `README.md`: Описание проекта.
+
+## Использование
+
+- На главной странице вы можете зарегистрироваться или войти в систему.
+- После входа пользователи могут создавать новые заявки и просматривать свои текущие заявки.
+- Администратор может управлять заявками через панель администратора.

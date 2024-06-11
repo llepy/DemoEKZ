@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая заявка</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Новая заявка</h2>
+        <form action="new_application.php" method="post">
+            <label for="car">Автомобиль</label>
+            <input type="text" id="car" name="car" required>
+            
+            <label for="description">Описание проблемы</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="date_time">Дата и время</label>
+            <input type="datetime-local" id="date_time" name="date_time" required>
+            
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>
